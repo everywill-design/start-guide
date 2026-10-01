@@ -1,0 +1,955 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>トリイク業務マニュアル</title>
+<style>
+:root{
+  --bg:#ffffff; --bg-alt:#f6f7f9; --bg-soft:#eef3f8;
+  --text:#1c2230; --text-dim:#5b6472; --line:#dfe3e8;
+  --navy:#1B3A5C; --navy-soft:#e6eef6; --orange:#e08a1e; --orange-soft:#fdf1dd;
+  --mark:#ffe99a; --mark-text:#4a3a00;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14171c; --bg-alt:#1b1f26; --bg-soft:#1e2732;
+    --text:#e6e9ee; --text-dim:#a2abb8; --line:#2c333d;
+    --navy:#8fb6dd; --navy-soft:#1e2a38; --orange:#e0a75a; --orange-soft:#2c2418;
+    --mark:#6b5a1a; --mark-text:#ffe99a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14171c; --bg-alt:#1b1f26; --bg-soft:#1e2732;
+  --text:#e6e9ee; --text-dim:#a2abb8; --line:#2c333d;
+  --navy:#8fb6dd; --navy-soft:#1e2a38; --orange:#e0a75a; --orange-soft:#2c2418;
+  --mark:#6b5a1a; --mark-text:#ffe99a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,"Yu Gothic",system-ui,-apple-system,sans-serif;
+  font-size:15px; line-height:1.85; -webkit-text-size-adjust:100%;
+}
+a{color:var(--navy)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+header.top{border-bottom:1px solid var(--line);background:var(--bg-alt);position:sticky;top:0;z-index:30}
+.topin{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-weight:700;color:var(--navy);font-size:17px;letter-spacing:.02em;white-space:nowrap}
+.updated{color:var(--text-dim);font-size:12px;white-space:nowrap}
+.searchbox{flex:1;min-width:200px;display:flex;align-items:center;gap:8px}
+.searchbox input{
+  flex:1;min-width:0;padding:8px 12px;border:1px solid var(--line);border-radius:8px;
+  background:var(--bg);color:var(--text);font-size:14px;font-family:inherit;
+}
+.searchbox input:focus{outline:2px solid var(--navy);outline-offset:0;border-color:transparent}
+.hits{font-size:12px;color:var(--text-dim);white-space:nowrap;min-width:56px}
+.navtoggle{display:none;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font-size:13px;font-family:inherit;cursor:pointer}
+
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:36px;max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+nav.toc{position:sticky;top:74px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13px;padding-right:6px}
+nav.toc .grp{color:var(--text-dim);font-size:11px;letter-spacing:.08em;margin:16px 0 6px}
+nav.toc a{display:block;padding:4px 8px;border-radius:6px;color:var(--text);text-decoration:none;line-height:1.5}
+nav.toc a:hover{background:var(--bg-soft)}
+nav.toc a.on{background:var(--navy-soft);color:var(--navy);font-weight:600}
+
+main{min-width:0}
+h1.doc{font-size:26px;margin:0 0 4px;color:var(--navy);line-height:1.4}
+p.lead{color:var(--text-dim);margin:0 0 28px;font-size:14px}
+section{scroll-margin-top:80px;margin:0 0 8px}
+h2{font-size:20px;margin:44px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--navy);color:var(--navy);line-height:1.45}
+h3{font-size:16px;margin:28px 0 10px;color:var(--text);line-height:1.5}
+h4{font-size:14px;margin:20px 0 8px;color:var(--text-dim);font-weight:700}
+p{margin:0 0 12px}
+ul{margin:0 0 12px;padding-left:1.3em}
+li{margin:0 0 6px}
+ul.plain{list-style:none;padding-left:0}
+ul.plain li{padding-left:1.1em;text-indent:-1.1em}
+.meta{display:inline-block;font-size:12px;color:var(--text-dim);background:var(--bg-alt);border-radius:6px;padding:4px 10px;margin:0 0 14px}
+.note{background:var(--bg-soft);border-radius:8px;padding:12px 16px;margin:0 0 14px;font-size:14px}
+.note strong{color:var(--navy)}
+.warn{background:var(--orange-soft);border-radius:8px;padding:12px 16px;margin:0 0 14px;font-size:14px}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;vertical-align:middle;margin-left:8px}
+.t-spot{background:var(--navy-soft);color:var(--navy)}
+.t-home{background:var(--orange-soft);color:var(--orange)}
+.tblwrap{overflow-x:auto;margin:0 0 18px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top;line-height:1.65}
+th{background:var(--bg-soft);color:var(--navy);font-weight:700;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.c,th.c{text-align:center;white-space:nowrap}
+code{background:var(--bg-soft);padding:1px 5px;border-radius:4px;font-size:.92em;word-break:break-all}
+mark{background:var(--mark);color:var(--mark-text);border-radius:3px;padding:0 2px}
+.hidden{display:none !important}
+.empty{padding:40px 0;color:var(--text-dim);text-align:center}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:20px 0;color:var(--text-dim);font-size:12px}
+@media (max-width:900px){
+  .layout{grid-template-columns:minmax(0,1fr);gap:0;padding-top:18px}
+  nav.toc{position:static;max-height:none;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:20px}
+  nav.toc.closed{display:none}
+  .navtoggle{display:block}
+  h2{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="topin">
+    <span class="brand">トリイク業務マニュアル</span>
+    <span class="updated">最終更新 2026.09.08</span>
+    <button class="navtoggle" id="navtoggle" aria-expanded="false">目次</button>
+    <div class="searchbox">
+      <input type="search" id="q" placeholder="マニュアル内を検索（例：eKYC、不正、デジコ）" aria-label="マニュアル内を検索">
+      <span class="hits" id="hits"></span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+<nav class="toc closed" id="toc">
+  <div class="grp">第0部　前提知識</div>
+  <a href="#s00">0-0　用語集</a>
+  <a href="#s01">0-1　各種システムの概要</a>
+  <a href="#s02">0-2　会員ランクとポイント</a>
+  <a href="#s03">0-3　アンケート種別</a>
+  <a href="#s04">0-4　ポイント付与ロジック</a>
+  <a href="#s05">0-5　拠点解除ロジック</a>
+  <a href="#s06">0-6　拠点別制限</a>
+  <a href="#s07">0-7　会員登録時の仕様</a>
+  <a href="#s08">0-8　2サービスの違い（早見表）</a>
+  <div class="grp">第1部　共通・日次ルーティン</div>
+  <a href="#s1">1　始業</a>
+  <a href="#s2">2　会員登録・eKYC業務</a>
+  <a href="#s3">3　インターホン対応業務</a>
+  <a href="#s4">4　伝票確認・ポイント付与業務</a>
+  <a href="#s5">5　荷物・拠点状況管理業務</a>
+  <a href="#s6">6　モニターキャンペーン</a>
+  <a href="#s7">7　問い合わせ・トラブル対応</a>
+  <a href="#s8">8　終業</a>
+  <div class="grp">第2部　週次／月次管理</div>
+  <a href="#s9">9　週次／隔週業務</a>
+  <div class="grp">第3部　管理者業務</div>
+  <a href="#s10">10　ユーザー管理</a>
+  <a href="#s11">11　トリイクルー管理</a>
+  <a href="#s12">12　マーケティング・分析業務</a>
+  <a href="#s13">13　マスター情報管理</a>
+  <div class="grp">第4部　その他業務ルール</div>
+  <a href="#s14">14　自動LINE通知一覧</a>
+  <a href="#s15">15　自動メール通知一覧</a>
+  <div class="grp">巻末</div>
+  <a href="#contact">連絡先一覧</a>
+  <a href="#todo">要確認一覧</a>
+</nav>
+
+<main id="main">
+<h1 class="doc">トリイク業務マニュアル</h1>
+<p class="lead">トリイクスポットおよび自宅deトリイクの運営業務における標準手順をまとめたものです。判断に迷う場合は自己判断せず、管理者へ確認してください。</p>
+<p class="empty hidden" id="empty">該当する内容が見つかりませんでした。</p>
+
+<section id="contact">
+<h2>連絡先一覧</h2>
+<h3>代表電話番号</h3>
+<ul class="plain">
+<li>・0120-600-273</li>
+<li>・業務用携帯：090-8279-2219（石戸保有）</li>
+</ul>
+<h3>緊急連絡先</h3>
+<ul class="plain">
+<li>・須藤：080-5376-9843（私用）</li>
+<li>・石戸：080-1121-9930（私用）</li>
+</ul>
+<h3>スポット詳細</h3>
+<ul class="plain">
+<li>・<strong>イオンモールむさし村山トリイク</strong></li>
+<li style="margin-left:1.3em">営業時間：毎日10時〜21時</li>
+<li style="margin-left:1.3em">店舗連絡先：042-566-8125（毎日9時30分〜18時30分）／042-566-8119（防災センター：毎日18時30分〜翌日9時30分）</li>
+<li style="margin-left:1.3em"><a href="https://www.google.com/maps/place/%E3%82%A4%E3%82%AA%E3%83%B3%E3%83%A2%E3%83%BC%E3%83%AB%E3%82%80%E3%81%95%E3%81%97%E6%9D%91%E5%B1%B1%E3%83%88%E3%83%AA%E3%82%A4%E3%82%AF/@35.7463634,139.3856308,17z/data=!3m1!4b1!4m6!3m5!1s0x6018e1212747a135:0xe987536f7ab4d7c6!8m2!3d35.7463634!4d139.3856308!16s%2Fg%2F11nqsnk5wz?entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">GoogleマップURL</a></li>
+<li style="margin-top:12px">・<strong>TAIRAYA武蔵境トリイク</strong></li>
+<li style="margin-left:1.3em">営業時間：24時間（TAIRAYAは10時～22時45分）</li>
+<li style="margin-left:1.3em">店舗電話番号：0422-55-5431</li>
+<li style="margin-left:1.3em"><a href="https://www.google.com/maps/place/TAIRAYA%E6%AD%A6%E8%94%B5%E5%A2%83%E3%83%88%E3%83%AA%E3%82%A4%E3%82%AF/data=!4m2!3m1!1s0x0:0x94f0d38e7de1e27b?sa=X&ved=1t:2428&ictx=111" target="_blank" rel="noopener">GoogleマップURL</a></li>
+<li style="margin-top:12px">・<strong>ラグーンコザトリイク</strong></li>
+<li style="margin-left:1.3em">営業時間（平日9:00～20:00）</li>
+<li style="margin-left:1.3em">住所：〒904-0004 沖縄県沖縄市中央１丁目７−８</li>
+<li style="margin-left:1.3em"><a href="https://www.google.com/maps/place/Lagoon+KOZA%E3%83%88%E3%82%AA%E3%82%A4%E3%82%AF/@26.3367827,127.8004073,17z/data=!3m1!4b1!4m6!3m5!1s0x34e513744ac895fb:0x2a5ef753c907199f!8m2!3d26.3367827!4d127.8004073!16s%2Fg%2F11zz3sl5wb?hl=ja-JP&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">GoogleマップURL</a></li>
+<li style="margin-left:1.3em">店舗電話番号：080-4651-6900</li>
+</ul>
+<h3>トリイクルー専用マニュアル（参考）</h3>
+<p><a href="https://drive.google.com/file/d/1Mopp_JsjjwKUXkGTpy1pjRyalsOaajuo/view">https://drive.google.com/file/d/1Mopp_JsjjwKUXkGTpy1pjRyalsOaajuo/view</a></p>
+</section>
+
+<section id="s00">
+<h2>0-0　用語集</h2>
+<h3>各種URL・ツール</h3>
+<ul class="plain">
+<li>・トリイク（一般ユーザー）　<code>https://app.toriiku-jp.com/index/login</code></li>
+<li>・トリイク（トリイククルー）　<code>https://app.toriiku-jp.com/worker/login</code></li>
+<li>・トリイク（管理者）　<code>https://app.toriiku-jp.com/122eh9f3admin_login</code></li>
+<li>・トリイク（モニター）　<code>https://app.toriiku-jp.com/monitor_entry</code></li>
+<li>・RemoteLock（<code>https://connect.remotelock.jp/sign-in</code>）　ドアの暗証番号管理ツール</li>
+<li>・Morecam（スマホアプリ）　各拠点のインターホン対応アプリ</li>
+<li>・Safie（<code>https://safie.link/app/devices/camera</code>）　トリイク拠点内を映す監視カメラ</li>
+<li>・デジコ（<code>https://partner.digi-co.net/</code>）　ポイントシステム</li>
+<li>・トリイクルー　拠点報告を行うワーカーのこと</li>
+<li>・ご近所ワークプラットフォーム（<code>https://gokinjowork.jp/login/orderer/</code>）　トリイクルーの発注／報告システム</li>
+<li>・トビラフォン Cloud　電話対応のクラウド型アプリ（管理サイト：<code>https://everywill-call.tobila.cloud/</code>）</li>
+</ul>
+<h3>参照ドキュメント</h3>
+<ul class="plain">
+<li>・<a href="https://drive.google.com/drive/u/0/folders/1-vJfZ6UvV54f7gPRHc38aOh5vTBvt5z7" target="_blank">トビラフォン_マニュアル</a>（Googleドライブ）</li>
+<li>・<a href="https://docs.google.com/presentation/d/1XyzYCcbSDvbzIt6dOcsFFL-PXDt5EgAcJ9WbcisXZrw/edit?slide=id.p7#slide=id.p7" target="_blank">LINE チャット_マニュアル</a>（Googleスライド）</li>
+<li>・<a href="https://docs.google.com/presentation/u/1/d/1vKoZfsrdr9C3GFBPClVhCOFMYALJ_SZ4NpCcBOUPqC0/edit?slide=id.g3e8f61bd2a8_0_73#slide=id.g3e8f61bd2a8_0_73" target="_blank">トリイクマニュアル 各ツールの使い方</a>（Googleスライド）</li>
+<li>・<a href="https://docs.google.com/spreadsheets/d/1ojlGZIrfdLGyNQ8TTdgD33OeAx9S6tYC/edit?gid=99437120#gid=99437120" target="_blank">別紙D_ID・パスワード集（限定共有）.xlsx</a>（Googleスプレッドシート）</li>
+<li>・<a href="https://docs.google.com/spreadsheets/d/1mIN5MZnfQO-KySmzFNBIDJ8At4CqA_DS_Y-8tWbLr9I/edit?gid=998831378#gid=998831378" target="_blank">トリイク業務日誌</a>（Googleスプレッドシート）</li>
+<li>・<a href="https://docs.google.com/spreadsheets/u/1/d/1KRWeQ5qFjrxugEwlYb4AsNIXsbHCDhSKlipWSDUcjZg/edit?gid=594156985#gid=594156985" target="_blank">スタッフQA</a>（Googleスプレッドシート）</li>
+<li>・<a href="https://docs.google.com/spreadsheets/d/1teRPtkIZJUQ0COyNF8qzVWz4jN1KKKhO0zt0Q94Ax9I/edit?gid=1031581458#gid=1031581458" target="_blank">【管理サイト専用】権限ロール別 メニュー操作範囲一覧表</a>（Googleスプレッドシート）</li>
+<li>・<a href="https://drive.google.com/drive/u/0/folders/1fqDFETlPrqzVHo4sQQbeVutNy-ncNM2S" target="_blank">現地写真</a>（Googleドライブフォルダ）</li>
+<li>・<a href="https://docs.google.com/presentation/d/1N_ATZ2h0BrgwSg1DEd7iL8ZO02K_X7J4UPr595KEycA/edit" target="_blank">貼り紙_20260619</a>（Googleスライド）</li>
+</ul>
+<h3>自宅deトリイクとは</h3>
+<p>拠点（トリイクスポット）を介さず、利用者が自宅（または個別登録した別住所）で受け取った荷物の伝票写真をアプリで撮影・提出することでポイントを獲得できるサービス。国土交通省の実証事業（物流負荷低減に向けた多様・柔軟な受取り方法普及促進事業）として、2026年9月1日にリリース。トリイクスポットとはアプリ内のヘッダーから相互に遷移できる導線があり、どちらか一方でeKYCを完了していれば、もう一方でのeKYCは不要。</p>
+<h3>ECサイト起動導線</h3>
+<p>自宅deトリイクアプリ内からAmazon・楽天市場・Qoo10・Yahoo!ショッピングを起動できるボタン。起動ログは管理者画面で確認・CSV抽出可能。将来的に、起動した利用者へ個別にポイントを手動付与する施策等に活用予定。</p>
+<h3>出店要望提出</h3>
+<p>自宅deトリイク利用者が、自宅や職場近くにトリイクスポットの新規設置を希望する場所をアプリから提出できる機能。位置情報を使って周辺の公共施設・商業施設等を検索・選択できる。提出者一覧は管理者画面で確認・CSV抽出可能。</p>
+</section>
+
+<section id="s01">
+<h2>0-1　各種システムの概要</h2>
+<h3>管理ダッシュボードメニュー</h3>
+<ul>
+<li>ダッシュボード：未対応タスク一覧（本人確認、伝票提出などの確認／承認が必要なタスクが一覧表示）、利用状況レポート、関連サイト</li>
+</ul>
+<div class="note"><strong>切り替えボタン</strong>　ダッシュボード画面の上部に「自宅deトリイク／トリイクスポット」の切り替えボタンがある。選択中のサービスのタスクのみが表示されるため、問い合わせ対応やタスク処理の際は、まずこのボタンで対象サービスを選択してから未対応タスクを確認すること。</div>
+<h4>参考：ダッシュボードで通知される内容<span class="tag t-spot">スポット</span></h4>
+<div class="tblwrap"><table>
+<tr><th>通知タイトル／件名</th><th>表示箇所</th><th>送信タイミング・通知条件</th></tr>
+<tr><td>【拠点名】のバッテリーが低下しています</td><td>上部赤アラート</td><td>RemoteLockよりバッテリー低下通知を受け取った時。ポップアップで「対応完了」を押すと消える。</td></tr>
+<tr><td>【拠点名】のロック解除状態が5分以上続いています</td><td>上部赤アラート</td><td>RemoteLockからデバイスの開錠・施錠毎に通知を受け取り、開錠状態の継続時間が5分を超えた時。</td></tr>
+<tr><td>新規会員承認：【ユーザー名】</td><td>下部タスク</td><td>ユーザーがネクスウェイの本人確認に成功した時。</td></tr>
+<tr><td>伝票目視確認：【ユーザー名】</td><td>下部タスク</td><td>ユーザーがOCRによる判別不能な伝票を提出した時。</td></tr>
+<tr><td>問い合わせ（チャット）対応</td><td>下部タスク</td><td>ユーザーからLINE経由で問い合わせメッセージが届いた時。</td></tr>
+<tr><td>在庫状況（トリイクルー報告）の確認</td><td>下部タスク</td><td>トリイクルーが伝票画像を撮影し、報告フォームを送信した時。</td></tr>
+<tr><td>拠点状況（満空状況・破損・規約外荷物等）の確認</td><td>下部タスク</td><td>トリイクルーから拠点状況報告が送信された時。</td></tr>
+<tr><td>拠点変更申請の確認</td><td>下部タスク</td><td>ユーザーが拠点変更の申請を行った時。</td></tr>
+</table></div>
+<h4>参考：ダッシュボードで通知される内容<span class="tag t-home">自宅de</span></h4>
+<div class="tblwrap"><table>
+<tr><th>通知タイトル／件名</th><th>表示箇所</th><th>送信タイミング・通知条件</th></tr>
+<tr><td>伝票目視確認：【ユーザー名】</td><td>下部タスク</td><td>自動承認条件を満たさない伝票が提出された時（4章参照）</td></tr>
+<tr><td>住所追加申請：【ユーザー名】</td><td>下部タスク</td><td>利用者が自宅以外の受取住所（職場等）の追加を申請した時（2章参照）</td></tr>
+<tr><td>会員情報変更申請：【ユーザー名】</td><td>下部タスク</td><td>利用者が登録済みの会員情報の変更を申請した時</td></tr>
+<tr><td>出店要望確認：【ユーザー名】</td><td>下部タスク</td><td>利用者がトリイクスポットの出店要望を提出した時</td></tr>
+<tr><td>週次不正チェックアラート</td><td>下部タスク（まとめて表示）</td><td>毎週月曜9時、週3件以上伝票写真を提出した利用者がいる場合に自動表示（4章参照）</td></tr>
+</table></div>
+<ul>
+<li>ユーザー管理：会員登録されたユーザーが一覧化。ユーザー検索／ユーザー情報編集／利用停止・強制退会が可能。</li>
+</ul>
+<div class="note">一覧の列に「トリイクスポット利用状況／自宅deトリイク利用状況」「トリイクスポットランク／自宅deトリイクランク」がサービスごとに分かれて表示される。問い合わせ対応時は、この列で対象ユーザーがどちらのサービスの会員か・現在のランクを確認できる（詳細は10章）。</div>
+<ul>
+<li>拠点管理：各拠点情報が一覧化。新規拠点の登録／拠点情報の編集／各拠点の機能設定（予約可否、トリイクルー配置、伝票提出要否、ポイント付与倍率、メンズブロック機能、モニターキャンペーン適用要否）</li>
+<li>チャット：ユーザーに対する個別メッセージ送受信</li>
+<li>一斉配信：ユーザー全体／特定カテゴリーのユーザーに対する一斉配信機能</li>
+<li>メッセージ：ユーザーへ通知されるメッセージテンプレート（自動／手動）</li>
+<li>ポイント：各種ポイントのON／OFF、付与ポイント数・倍率の設定</li>
+<li>ワーカー：トリイクルーの情報一覧。新規登録／アカウント情報編集／勤務期間・担当拠点の変更修正</li>
+<li>アンケート：各種アンケートの設問修正、結果集計。アンケートは種類が固定されており、増設する場合は保守ベンダーと相談</li>
+<li>アカウント設定：管理ユーザーの権限設定</li>
+</ul>
+</section>
+<section id="s02">
+<h2>0-2　ユーザー会員ランクとポイント</h2>
+<h3>トリイクスポット<span class="tag t-spot">スポット</span></h3>
+<div class="tblwrap"><table>
+<tr><th>会員ランク</th><th>適用条件／累積回数</th><th class="c">通常</th><th class="c">ボーナス</th><th class="c">合計</th><th>備考</th></tr>
+<tr><td>利用停止</td><td>管理者側で任意設定</td><td class="c">－</td><td class="c">－</td><td class="c">－</td><td>利用規約違反など、当社の判断により利用停止としたユーザー</td></tr>
+<tr><td>会員登録未了</td><td>会員登録／本人確認（eKYC）のいずれかが未了、もしくはどちらも未了</td><td class="c">－</td><td class="c">－</td><td class="c">－</td><td>－</td></tr>
+<tr><td>エントリー</td><td>会員登録／本人確認（eKYC）いずれも完了</td><td class="c">－</td><td class="c">－</td><td class="c">－</td><td>純粋な初回利用者を特定するための会員ランク。新規利用キャンペーンやモニターでポイントが付与されるため、通常ポイントは0pt</td></tr>
+<tr><td>スタンダード</td><td>累積で1回以上、かつ直近6か月間で累積5回利用未満</td><td class="c">5</td><td class="c">5</td><td class="c">10</td><td>1回でもトリイクを利用したことのあるユーザー</td></tr>
+<tr><td>ブロンズ</td><td>直近6か月間で累積5回利用</td><td class="c">10</td><td class="c">10</td><td class="c">20</td><td>平均1回／月以上トリイクを利用したユーザー</td></tr>
+<tr><td>シルバー</td><td>直近6か月間で累積15回利用</td><td class="c">15</td><td class="c">15</td><td class="c">30</td><td>平均2回／月以上トリイクを利用したユーザー</td></tr>
+<tr><td>ゴールド</td><td>直近6か月間で累積20回利用</td><td class="c">20</td><td class="c">30</td><td class="c">50</td><td>平均3回／月以上トリイクを利用したユーザー</td></tr>
+<tr><td>プラチナ</td><td>直近6か月間で累積30回利用</td><td class="c">40</td><td class="c">60</td><td class="c">100</td><td>平均5回／月以上トリイクを利用したユーザー</td></tr>
+<tr><td>ダイヤモンド</td><td>直近6か月間で累積50回利用</td><td class="c">70</td><td class="c">80</td><td class="c">150</td><td>平均8回／月以上トリイクを利用したユーザー</td></tr>
+</table></div>
+<h3>自宅deトリイク<span class="tag t-home">自宅de</span></h3>
+<p>自宅deトリイクは、トリイクスポットとはポイント算定ロジックが異なり、「会員ランク」×「受取方法（通常／再配達なし／置き配／ゆっくり配送）」＋「任意アンケート回答」の組み合わせで付与額が決まる。「最大／回」は1回の伝票提出あたりの最大付与ポイント。</p>
+<div class="tblwrap"><table>
+<tr><th>ランク</th><th class="c">通常</th><th class="c">再配達なし</th><th class="c">置き配</th><th class="c">ゆっくり配送</th><th class="c">アンケート任意</th><th class="c">最大／回</th></tr>
+<tr><td>エントリー</td><td class="c">1</td><td class="c">1</td><td class="c">1</td><td class="c">1</td><td class="c">1</td><td class="c">5</td></tr>
+<tr><td>スタンダード</td><td class="c">1</td><td class="c">1</td><td class="c">1</td><td class="c">1</td><td class="c">2</td><td class="c">6</td></tr>
+<tr><td>ブロンズ</td><td class="c">2</td><td class="c">2</td><td class="c">1</td><td class="c">1</td><td class="c">2</td><td class="c">8</td></tr>
+<tr><td>シルバー</td><td class="c">2</td><td class="c">2</td><td class="c">2</td><td class="c">2</td><td class="c">3</td><td class="c">11</td></tr>
+<tr><td>ゴールド</td><td class="c">3</td><td class="c">3</td><td class="c">2</td><td class="c">2</td><td class="c">4</td><td class="c">14</td></tr>
+<tr><td>プラチナ</td><td class="c">3</td><td class="c">4</td><td class="c">3</td><td class="c">3</td><td class="c">5</td><td class="c">18</td></tr>
+<tr><td>ダイヤモンド</td><td class="c">4</td><td class="c">5</td><td class="c">4</td><td class="c">3</td><td class="c">6</td><td class="c">22</td></tr>
+</table></div>
+<ul class="plain">
+<li>※会員ランクの判定条件（直近6か月の累積利用回数）はトリイクスポットと共通の考え方。「再配達なし」「置き配」「ゆっくり配送」の該当判定は、必須／初回利用／モニターアンケートQ3〜Q5の回答による（4章参照）。</li>
+<li>※ポイント交換には事前にeKYCの完了が必要（本人確認未了でも利用・ポイント獲得は可能）。</li>
+<li>※管理者画面で設定した指定エリア（都道府県・市区町村単位、最大3エリア）ごとに、倍率A・倍率Bを設定可能（詳細は13章）。</li>
+</ul>
+</section>
+
+<section id="s03">
+<h2>0-3　アンケート種別</h2>
+<h3>トリイクスポット<span class="tag t-spot">スポット</span></h3>
+<ul>
+<li>利用アンケート：2回目以降の利用において回答する簡単なアンケート</li>
+<li>任意アンケート：毎回の利用において、EC購入商品のURL回答等、踏み込んだアンケート</li>
+<li>初回利用アンケート：初回利用時のみ回答可能なキャンペーン用のアンケート</li>
+<li>モニターアンケート：モニター登録者限定の、キャンペーン用のアンケート</li>
+</ul>
+<h3>自宅deトリイク<span class="tag t-home">自宅de</span></h3>
+<ul>
+<li>必須アンケート（7問）：累積利用2回目以降に送付。Q3〜Q5が「受取方法／再配達有無／ゆっくり配送利用」の判定用設問で、ポイント判定とKPI計測を兼ねる</li>
+<li>任意アンケート（8問）：必須アンケート回答完了時に「追加アンケートを回答する」を選択した場合に送付。ECサイト・購入商品データの収集用</li>
+<li>初回利用アンケート（14問）：初回利用（モニター対象外）の場合に送付</li>
+<li>モニターアンケート（22問）：初回利用（モニター対象）の場合に送付</li>
+</ul>
+<div class="note">設問の詳細内容や結果集計は9章（週次業務）を参照。トリイクスポット用アンケートと自宅deトリイク用アンケートはデータベースが別であり、混同しないよう留意すること。</div>
+</section>
+
+<section id="s04">
+<h2>0-4　ポイント付与ロジック</h2>
+<h3>トリイクスポット<span class="tag t-spot">スポット</span></h3>
+<h4>1．各ポイント／キャンペーンの適用条件</h4>
+<p>初回利用時に適用されるキャンペーンは「モニター」「紹介」「初回利用」の3種類。</p>
+<div class="tblwrap"><table>
+<tr><th>ポイント／キャンペーン名</th><th>適用条件（すべて満たすこと）</th><th>他との併用</th></tr>
+<tr><td>① トリイク利用ポイント</td><td>トリイクを利用する（伝票提出＋利用アンケート回答）※会員ランクに応じて付与額は変動</td><td>可能</td></tr>
+<tr><td>② 任意アンケート回答ボーナス</td><td>トリイクを利用する（伝票提出＋任意アンケート回答）</td><td>可能</td></tr>
+<tr><td>③ 月間累積利用ボーナス</td><td>同一月内に8回および15回トリイクを利用する</td><td>可能</td></tr>
+<tr><td>④ 初回利用ボーナス</td><td>モニター事前エントリーがなく、初回利用を行う（伝票提出＋初回利用アンケート回答）</td><td>可能（⑤と併用）</td></tr>
+<tr><td>⑤ 紹介ポイント</td><td>会員登録時に「紹介コード」の入力があり、モニター事前エントリーがなく、初回利用を行う</td><td>可能（④と併用）</td></tr>
+<tr><td>⑥ モニター利用ボーナス</td><td>事前エントリー（本人確認実施日時と48時間以内）＋初回利用（伝票提出＋モニター用アンケート回答、事前エントリーまたは本人確認実施日から2週間以内）</td><td>不可（初回利用・紹介キャンペーンとは併用されない）</td></tr>
+</table></div>
+<h4>2．ポイント適用パターン</h4>
+<div class="tblwrap"><table>
+<tr><th>対象者</th><th>配信されるアンケート</th><th>②任意を回答した場合の付与額</th><th>②を回答しなかった場合の付与額</th></tr>
+<tr><td>リピーター（累積2回目以降）</td><td>①＋② の一体型</td><td>（①×倍率A）＋（②×倍率B）</td><td>（①×倍率A）のみ</td></tr>
+<tr><td>初回利用者（モニター対象外）</td><td>④＋② の一体型</td><td>④＋（②×倍率B）</td><td>④ のみ</td></tr>
+<tr><td>初回利用者（モニター対象）</td><td>⑥＋② の一体型</td><td>⑥＋（②×倍率B）</td><td>⑥ のみ</td></tr>
+<tr><td>紹介CP利用者（被紹介者）</td><td>①＋②＋④＋⑤ の一体型</td><td>（①×倍率A）＋（②×倍率B）＋④＋⑤</td><td>（①×倍率A）＋④＋⑤</td></tr>
+<tr><td>【例外】キャンペーンOFF拠点</td><td>①＋② の一体型</td><td>（①×倍率A）＋（②×倍率B）</td><td>（①×倍率A）のみ</td></tr>
+<tr><td>累積ボーナス対象者</td><td>①＋②＋③ の一体型</td><td>（①×倍率A）＋（②×倍率B）＋③</td><td>（①×倍率A）＋③</td></tr>
+</table></div>
+<div class="note"><strong>拠点倍率の適用仕様</strong>　「モニター」「紹介」「初回利用」の各種キャンペーンポイントについては、現状、拠点倍率（特定拠点のポイント付与倍率）は適用されない仕様となっている。将来的にはこれらのキャンペーンにも拠点倍率が反映される仕様（アップデート）を予定しているため、仕様変更の際は留意すること。</div>
+<h4>3．ポイント付与の条件</h4>
+<ul>
+<li>入室記録（＝荷物の受取）から48時間以内に伝票が提出されていること。48時間と利用規約には記載があるが、超過分もダッシュボードに上がってくる。本人に伝票提出が遅延した理由を確認したうえで承認し、今後は遅延しないよう伝える。</li>
+<li>伝票が正規のものであること（宛名相違、住所相違、重複などは不可）</li>
+</ul>
+<h4>4．モニター判定と紹介コードが重複した場合の優先ルール</h4>
+<p>判定基準は早い者勝ち。「モニターエントリー日時」と「会員登録日時（紹介コード入力時）」を比較し、日時が早い方を優先して適用する。</p>
+<h4>5．モニターキャンペーン適用の詳細条件（時間制限と突合ルール）</h4>
+<ul>
+<li>本人確認（突合）の仕組み：事前エントリー画面で入力された「メールアドレス」と、トリイク会員情報として登録された「メールアドレス」が完全一致するかどうかで対象者を判定。</li>
+<li>有効期限（時間条件）：エントリーと登録の間隔が48時間以内、かつ直近の日時から起算して初回利用（アンケート回答日時）までが2週間以内であること。</li>
+</ul>
+<h4>6．その他の留意事項</h4>
+<ul>
+<li>通常ポイント以外のポイント付与通知：条件を満たした時点で自動的にユーザーへ付与され、その際にユーザーへの通知は実施されない（ユーザーは「ポイント履歴」より確認）。問い合わせが想定されるため留意すること。</li>
+<li>ポイント有効期限の表示：有効期限が1か月以内となった場合のみ、ユーザー画面で失効予定日の表示が行われる。</li>
+</ul>
+<div class="note"><strong>参考：利用規約</strong>　トリイクポイントの有効期限は、当該ポイントを獲得した月を1か月目として起算し、6か月目の月末日までとする。</div>
+<h3>自宅deトリイク<span class="tag t-home">自宅de</span></h3>
+<p>算定ロジックは「物流貢献度合（OCR検知：再配達なし／置き配受取／ゆっくり配送等）×会員ランク」＋任意アンケート回答ボーナス。デジコ連携によるポイント付与、ポイント有効期限、履歴画面の仕様はトリイクスポットと同じ（獲得月から6か月目の月末日まで）。</p>
+<div class="warn"><strong>混同注意</strong>　ポイント確定は、利用規約上「原則、利用の受付から72時間以内」。トリイクスポットの3時間／48時間ルールとは異なる基準。</div>
+<p>モニター・紹介キャンペーンはトリイクスポットとは完全に別物として運用される（エントリー・付与ポイントとも別管理）。</p>
+</section>
+
+<section id="s05">
+<h2>0-5　拠点解除ロジック<span class="tag t-spot">スポットのみ</span></h2>
+<ul>
+<li>概要：セキュリティおよび適正利用の観点から、拠点のドア解錠（QRコード読み込み）にはGPS位置情報を用いた制限が設けられている。一般ユーザーおよびトリイクルー双方に共通して適用される。</li>
+<li>解錠条件（100mルール）：ユーザーがアプリで拠点のQRコードを読み込んで解錠操作を行う際、「拠点」と「ユーザーの現在地」が直線距離で100m以内でなければドアは解錠されない。</li>
+<li>位置情報の取得元に関する仕様
+  <ul><li>拠点側の位置情報（トリイクアプリ上に登録・設定されている拠点の住所座標）</li>
+  <li>ユーザー側の位置情報（ユーザーが使用しているスマートフォンのGPS位置情報）</li></ul></li>
+<li>エラー時の挙動と注意事項
+  <ul><li>デバイスの位置情報設定がオフになっている場合、ユーザー自身で端末の設定を変更していただくよう案内する。</li>
+  <li>座標更新のタイムラグ（Google API起因）：拠点の住所情報が変更・更新された直後は、アプリ上の座標データが最新化されるまでタイムラグが発生する可能性があるため、住所の更新は必ず利用の少ない時間帯に実施する。</li></ul></li>
+</ul>
+</section>
+
+<section id="s06">
+<h2>0-6　拠点別制限<span class="tag t-spot">スポットのみ</span></h2>
+<ul>
+<li>伝票提出不要拠点：伝票提出が不要となっている拠点では、ユーザーは伝票提出を行う必要がない。当該拠点を伝票提出画面で選択した場合、システム上、伝票データを提出することができない。</li>
+<li>拠点別ポイント付与倍率：管理者の設定により、特定拠点のポイント付与倍率を変更することができる。</li>
+</ul>
+</section>
+
+<section id="s07">
+<h2>0-7　会員登録時の仕様</h2>
+<p>新規会員登録フロー：会員情報入力 → メール認証（認証コード）→ 本人確認書類提出（eKYC）→ 承認（ダッシュボード）</p>
+<ul>
+<li>手続き中断時の挙動：会員情報入力後、本人確認書類提出フェーズで画面を閉じた（中断した）場合、再度ログイン（再開）すると、本人確認提出方法の選択画面からスタートする。</li>
+<li>新規会員登録時の位置情報を「許可しない」とした場合の挙動
+  <ul><li>マイトリイク選択画面で現在地に近い拠点の候補が提示されなくなる</li>
+  <li>拠点解錠操作時に解錠ができない（位置情報許可を求めるポップアップが表示され、許可しない限り次の操作へ進めない）</li></ul></li>
+<li>退会済みユーザーの制限：退会済みユーザーは再度会員登録することができない仕様。再登録を許可する場合は、保守ベンダーへ個別に対応依頼を行うことで再登録が可能となる。</li>
+</ul>
+<div class="note">自宅deトリイクの会員登録は、eKYCが「任意」。本人確認未了でも機能はすべて使用でき、トリイクポイントも貯まるが、ポイントを交換するには事前にeKYCの完了が必要（2章参照）。トリイクスポットとeKYC完了状況は共有されるため、どちらか一方で完了していれば、もう一方での再実施は不要。</div>
+</section>
+
+<section id="s08">
+<h2>0-8　自宅deトリイクとトリイクスポットの違い（早見表）</h2>
+<div class="tblwrap"><table>
+<tr><th>項目</th><th>トリイクスポット</th><th>自宅deトリイク</th></tr>
+<tr><td>受取場所</td><td>拠点（スポット）</td><td>自宅／個別登録した別住所</td></tr>
+<tr><td>入室ログ・QR解錠</td><td>あり</td><td>なし</td></tr>
+<tr><td>eKYC</td><td>会員登録に必須</td><td>会員登録は任意。ポイント交換時のみ必須</td></tr>
+<tr><td>伝票承認の主な突合対象</td><td>拠点住所・入室ログとの時間整合</td><td>登録住所（自宅／別住所）と伝票記載住所<br>※伝票の古さ・提出までの日数は判断材料としない</td></tr>
+<tr><td>ポイント確定までの目安時間</td><td>自動承認は即時、目視確認は最終退出から3時間経過後に対象化。48時間ルールあり</td><td>原則72時間以内（規約）</td></tr>
+<tr><td>ポイント算定ロジック</td><td>会員ランク別の通常＋ボーナスポイント</td><td>会員ランク×受取方法（通常／再配達なし／置き配／ゆっくり配送）＋任意アンケート</td></tr>
+<tr><td>モニター・紹介キャンペーン</td><td>スポット独自運用</td><td>スポットとは完全に別管理</td></tr>
+<tr><td>独自機能</td><td>インターホン対応、拠点満空管理、メンズブロック等</td><td>ECサイト起動導線、出店要望提出、住所追加申請</td></tr>
+</table></div>
+</section>
+
+<section id="s1">
+<h2>1　始業（業務開始準備）</h2>
+<div class="meta">業務タイミング：シフト開始時</div>
+<h3>1-1　ダッシュボードの立ち上げ・未対応タスクの確認</h3>
+<ul>
+<li>メールアドレスとパスワードを使用してトリイクシステムにログインする。</li>
+<li>ダッシュボード画面を開き、「未対応タスク一覧」から、問い合わせ状況や新規会員情報の承認作業などを確認する。</li>
+</ul>
+<div class="note">画面上部の「自宅deトリイク／トリイクスポット」切り替えボタンで対象サービスを選択し、それぞれの未対応タスクを漏れなく確認すること。</div>
+<h3>1-2　拠点設備の稼働確認<span class="tag t-spot">スポットのみ</span></h3>
+<h4>1．監視カメラの確認</h4>
+<ul>
+<li>Safieへログイン</li>
+<li>カメラ接続状況の確認：「デバイス一覧」で各拠点の映像が映し出せているかを確認。表示されていない場合は個別に復旧を試みる</li>
+<li>カメラの向きの確認：拠点全体を適切に映しているか確認。適切でない場合は手動で修正</li>
+</ul>
+<h4>2．入退室管理システムの確認</h4>
+<ul>
+<li>RemoteLockへログイン</li>
+<li>デバイス接続状況の確認：「デバイス」タブで全拠点の接続状況を確認。遮断されている場合は個別に復旧</li>
+<li>バッテリー状況の確認：残量30%未満でダッシュボード上部に赤アラート表示。30%未満の場合トリイクルーへ電池交換を指示し、交換後は「対応完了」ボタンでアラート解除</li>
+</ul>
+<h4>3．メールボックスの確認</h4>
+<ul>
+<li>法人用（contact_center）・個人用（customer_support）メールボックスへログイン</li>
+<li>Gmailの「状態管理（ステータス）」を確認して対応：未読＝未対応／要確認、「対応中」＝二重対応防止のため他スタッフは触らない、「引継ぎ」＝翌日担当への申し送り、「対応完了」＝返信・クローズ</li>
+<li>引継ぎがあるものは引継ぎする：業務日誌への入力（「次シフトへの引き継ぎ事項」欄）／Slackでの補足・メンション（シートに入力しきれない場合、Slackチャンネル「#13_トリイクスポット運営」で翌日担当へメンション付き投稿）</li>
+<li>トリイクスポット以外の問い合わせ（転送ルール）：受信したメールが「トリイクスポット」以外の内容だった場合は、速やかに担当者へ転送する。</li>
+</ul>
+<p><strong>【役割と担当ルール】</strong>日替わり担当（メイン）：その日の新着メール一次対応の責任者。バックアップ（エスカレーション先）：メイン担当が休みの日や対応が溢れた場合は管理者へエスカレーション。各スタッフのシフトは別途共有のシフト表を確認。</p>
+<p><strong>【誤送信・重複対応防止ルール】</strong>返信の下書き作成時は本文の最上部に「【作成中：〇〇（自分の名前）】」と記載する。送信前に不安な点があればSlack等でダブル・トリプルチェックを行う。</p>
+<h4>4．トビラフォン Cloudへのログイン</h4>
+<ul>
+<li>ログインID集を参照し、各自のIDでログイン</li>
+<li>「在籍ステータス」が「連絡可能」になっていることを必ず確認する</li>
+</ul>
+<h3>1-3　不在票の確認と再配達依頼<span class="tag t-spot">スポットのみ</span></h3>
+<ul>
+<li>トリイクルーから報告された「不在連絡票」を確認する。</li>
+<li>記載のQRコードもしくは電話番号から再配達依頼を行う（再配達日時は対象拠点の営業時間内における最短日時を指定）。</li>
+</ul>
+</section>
+
+<section id="s2">
+<h2>2　会員登録・eKYC（本人確認）業務</h2>
+<div class="meta">業務タイミング：本人確認タスク生成時／作業者（権限）：全員</div>
+<h3>2-1　新規会員情報の目視確認・承認</h3>
+<ul>
+<li>ダッシュボードの未対応タスクから「本人確認」タスクを確認する。</li>
+<li>最終目視チェックの実施：NEXWAY経由で提出された本人確認書類と、入力された会員情報（氏名、生年月日、性別、住所等）に不一致がないか目視確認を実施する（不一致があった場合はNEXWAY側で自動再送されるため、スタッフによる再送処理は不要）。</li>
+<li>目視確認で問題がなければ承認処理を行い、会員登録完了とする。</li>
+<li><strong>【重要・至急対応】</strong>利用者が拠点のQRコードを読み込んでから会員情報登録やeKYCを行った場合、最優先で即時対応を行う（この場合、利用者はスポットのインターホンを押して知らせるよう、トリイクスポットには注意書き資料が貼ってある）。</li>
+</ul>
+<div class="note">自宅deトリイクの会員登録は、eKYCが「任意」。本人確認未了でも会員登録・利用は可能。ただし、ポイント交換にはeKYCの完了が必須である旨を、問い合わせがあった際は案内すること（7章も参照）。</div>
+<h3>2-2　eKYC未了者への対応（システム連携と個別フォロー）</h3>
+<ul>
+<li>eKYC未了者への自動リマインド（作業不要）：システムから自動でLINEリマインドが通知される（1回目：会員登録当日、2回目：3日後、3回目：7日後）。</li>
+<li>入室制限に関する自動通知（作業不要）：拠点QR読み込み時に情報入力とeKYCが必要である旨が自動通知される（スポットのみ）。</li>
+<li>荷物到着時の本人確認リマインド（作業不要）：荷物保管通知を送る際、eKYC未済の場合は「手続きを行わないと荷物が受け取れない旨」を含めた通知が送信される（スポットのみ）。</li>
+<li>個別対応（例外処理）：個別チャットで本人確認の不具合が報告された場合、本人確認用URLをバブル上から再送する等の対応を行う。</li>
+</ul>
+<h3>2-3　住所追加申請の確認・承認<span class="tag t-home">自宅deのみ</span></h3>
+<p>自宅以外の場所（職場等）で荷物を日常的に受け取る利用者は、アプリの会員登録画面等の導線からチャットで申し出て、当社社員が個別に確証写真と住所情報を聞き取り、管理者画面の顧客データへ手作業で登録する。登録後、ダッシュボードに「住所追加申請」タスクとして表示される。</p>
+<ul>
+<li>ダッシュボードの「住所追加申請」タスクを開き、内容を確認する。</li>
+<li>承認基準：<strong>原則承認とする。</strong>ただし、同一利用者から住所追加申請が1日に何回も来るなど、通常の利用実態として不自然に頻度が高い場合は、承認前に社員間で情報共有のうえ個別に判断する（不正利用防止の観点）。</li>
+<li>承認後、当該住所も伝票承認時の突合対象住所として登録される（4章参照）。</li>
+<li>自宅住所自体も、eKYCの結果等により当社社員が手入力で変更する場合がある。</li>
+</ul>
+</section>
+
+<section id="s3">
+<h2>3　インターホン対応業務<span class="tag t-spot">スポットのみ</span></h2>
+<div class="meta">業務タイミング：インターホン呼出時</div>
+<h3>3-1　インターホン・配送業者対応</h3>
+<ul>
+<li>インターホンが鳴るとMorecamアプリに通知が届く</li>
+<li>訪問者が配達事業者であるかどうか映像で確認する（確認できない場合はMorecamの通話機能（緑のボタン）を押し、個別に身分と来訪事情を聞く）</li>
+<li>配達事業者である場合、Morecamアプリの画面内のオレンジ色のボタンを押し「ボイスメールを送信」をプッシュする（現地で「スタッフが遠隔でカギを開けますのでお待ちください」と自動音声が流れる）</li>
+<li>素早く業務用アプリを「Morecam」から「SADIOT ROOM」アプリへ切り替え、オレンジ色の解錠ボタンを押して解錠を行う</li>
+</ul>
+</section>
+<section id="s4">
+<h2>4　伝票確認・ポイント付与業務</h2>
+<div class="meta">業務タイミング：伝票提出タスク生成時／作業者（権限）：全員</div>
+<h3>4-1　伝票自動承認ロジック<span class="tag t-spot">スポット</span></h3>
+<p>ユーザーから提出された伝票写真は、ダッシュボードに届く前にシステムによる自動認証が行われる。条件をクリアしたものはスタッフの目視確認をスキップし、条件から外れたもののみがダッシュボードの未対応タスクとして届く。</p>
+<h4>自動承認の条件（以下をすべて満たした場合、自動承認）</h4>
+<ul>
+<li>住所の一致：入室した「拠点の住所」と提出された伝票写真の「住所」が一致</li>
+<li>氏名の一致：伝票写真の「荷受人名」と登録されている「利用者登録名前」が一致</li>
+<li>提出伝票数：1つの入室記録に対し1枚の伝票提出であること（複数枚を同時に提出した場合は目視確認となる）</li>
+<li>提出期限：スポット最終退出時刻（ドア解錠または入室ログの日時から3分後を基準）から3時間以内の提出であること</li>
+</ul>
+<p>システムの自動照合仕様：表記ゆれ（氏名の空白、住所の表記ゆれ、全角・半角の混在）に対して柔軟なデータ突合を行う機能を備えている。</p>
+<h4>自動承認されなかった場合（手動承認フロー）</h4>
+<p>条件のいずれか一つでも一致しなかった場合、または最終退出時刻から3時間を超えて提出された場合は、管理者ダッシュボードの「目視確認タスク」として通知される。スタッフが伝票写真と登録情報を目視確認し、問題がなければ手動で承認処理を行う。承認後、直後に利用者のLINEへアンケートが自動送付される。</p>
+<div class="note"><strong>目視確認で承認するケース</strong>　①条件をすべて満たすと判断される場合　②提出伝票数の条件のみ満たしていない場合において、複数の伝票のうち1枚でも住所・氏名の一致を満たす場合。<br><strong>非承認処理</strong>　非承認理由を選択のうえ確定。「その他」を選択した場合はチャット画面へ自動遷移し、理由を記載のうえユーザーへ通知。</div>
+<h3>4-2　【ダッシュボード】ポイント申請（伝票提出／手動）の確認<span class="tag t-spot">スポット</span></h3>
+<ul>
+<li>ダッシュボードの未対応タスク一覧より「ポイント申請（伝票写真）」の確認タスクを開く。</li>
+<li>「伝票目視確認」より以下の3点を確認する。
+ <ul><li>伝票提出ユーザー情報が正しく表示されているか</li>
+ <li>入室ログ：直近入室日時と伝票提出日時が12時間以内か</li>
+ <li>提出伝票：ユーザー情報と宛名が一致するか</li></ul></li>
+</ul>
+<div class="note"><strong>その他チェックポイント</strong>　入室日より前の日付の伝票ではないか／入室日から48時間以上後に提出された伝票ではないか／記載された住所はトリイクスポットの住所か（過去の伝票の使い回しではないか、自宅等に配送された伝票を使っていないかという目線でチェック）。<br><strong>※本項はトリイクスポットのみ。自宅deトリイクには適用しない（4-4参照）。</strong></div>
+<ul>
+<li>確認して問題がなければ、システム上で「承認」処理を行う。承認後、会員ランクや各種キャンペーン、ポイント種別に応じたポイントがシステムから自動で付与・通知される。スタッフによる個別のポイントコードのコピー＆ペーストやLINE送信は原則不要。</li>
+</ul>
+<h3>4-3　例外対応およびポイント非付与拠点に関する注意<span class="tag t-spot">スポット</span></h3>
+<ul>
+<li>ポイント非対象拠点：集合住宅向けスポットなど一部拠点は「伝票提出・ポイント付与の対象外」。個別に問い合わせがあった場合は、該当拠点はポイント付与対象外である旨を案内する。</li>
+<li>「EAZY」等の宛名が省略された伝票への対応
+ <ul><li>チャットで伝票番号とユーザー情報が紐づいた画像／スクリーンショットの提出を依頼</li>
+ <li>対象ユーザーの入室記録が伝票提出日時より48時間以内であることを確認（ログが存在しない場合はトリイクルーの在庫状況データと照合）</li>
+ <li>確認できる場合は伝票を承認</li></ul></li>
+<li>個別にポイント付与を行う場合（例外対応）：システムトラブルなどの理由でポイント付与・補填が必要な場合は、保守ベンダーに連絡し個別対応で実施する。</li>
+</ul>
+<h3>4-4　伝票確認・ポイント付与業務<span class="tag t-home">自宅de</span></h3>
+<h4>1．承認ロジックの違い</h4>
+<p>トリイクスポットのような入室ログとの時間整合は行わない。ポイント付与の条件は、利用規約第14条第2項に定める次の2点のみ。</p>
+<ul>
+<li>住所の一致：伝票記載の住所と、利用者の登録住所（自宅住所、または2-3で承認された別住所）が一致すること</li>
+<li>氏名の一致：伝票の「荷受人名」と登録名が一致すること</li>
+</ul>
+<div class="warn"><strong>スポットのルールを持ち込まないこと</strong>　4-1〜4-3はトリイクスポット専用の手順。自宅deトリイクには入室ログがないため、<strong>「入室日より前の伝票か」「48時間以内の提出か」「過去の伝票の使い回しではないか」という4-2のチェック観点は適用しない。</strong>自宅deトリイクの利用規約には、伝票の古さや提出までの日数を理由にポイント対象外とする条項がない。</div>
+<h4>2．管理者による目視承認が必要なケース</h4>
+<p>次のいずれかに該当する伝票は自動承認されず、目視確認タスクとして表示される。</p>
+<div class="tblwrap"><table>
+<tr><th>条件</th><th>目視で何を見るか</th></tr>
+<tr><td>住所または氏名の突合が一致しない</td><td>表記ゆれ・旧住所・世帯内の別名義でないか</td></tr>
+<tr><td>伝票に記載のお届け日と伝票提出日が別日</td><td>下記3の基準で判断する</td></tr>
+<tr><td>提出された伝票番号が、過去に承認済みの伝票番号と同一の可能性がある</td><td>下記6の一元管理画面で照合</td></tr>
+</table></div>
+<p>お届け日はOCRで自動判定するが、自動承認の可否には使用しない。あくまで目視承認の対象条件。</p>
+<h4>3．目視時の判断基準</h4>
+<p><strong>承認するケース</strong></p>
+<ul>
+<li>氏名・住所が一致しており、下記の非承認事由に該当しないもの</li>
+<li><strong>お届け日が過去の日付であっても、それだけを理由に非承認としない。</strong>数週間〜数か月前の伝票をまとめて提出された場合も、氏名・住所が一致し伝票番号の重複がなければ承認する</li>
+<li><strong>お届け日の記載がない伝票も、それだけを理由に非承認としない。</strong>お届け日を印字しない伝票は珍しくなく、規約上もお届け日はポイント付与の要件ではない</li>
+</ul>
+<p><strong>非承認とするケース（規約上の根拠が必要）</strong></p>
+<div class="tblwrap"><table>
+<tr><th>状況</th><th>規約上の根拠</th><th>選択する通知種別</th></tr>
+<tr><td>氏名・住所・伝票番号が判読できない／伝票の一部しか写っていない</td><td>第14条2項（一致を確認できない）</td><td>情報不足による再提出依頼</td></tr>
+<tr><td>伝票以外のものが写っている／該当箇所が隠れている</td><td>第14条2項</td><td>情報不足による再提出依頼</td></tr>
+<tr><td>同一伝票番号の再提出（本人・他利用者を問わず）</td><td>第21条1号</td><td>不正・不一致による非承認（警告）</td></tr>
+<tr><td>荷受人が利用者本人でない</td><td>第21条2号</td><td>不正・不一致による非承認（警告）</td></tr>
+<tr><td>画像の加工痕がある／画面に表示された画像を撮影している</td><td>第21条3号・4号</td><td>不正・不一致による非承認（警告）</td></tr>
+<tr><td><strong>営業所止め・郵便局留め・コンビニ受取・宅配ロッカー・トリイクスポットでの受取と判断できる</strong></td><td><strong>第15条1項・第21条5号</strong></td><td><strong>不正・不一致による非承認（警告）</strong></td></tr>
+<tr><td>登録住所以外の場所での受取と判断できる</td><td>第15条1項6号・第21条5号</td><td>不正・不一致による非承認（警告）</td></tr>
+</table></div>
+<div class="note">判断に迷う場合は非承認とせず、社員へ相談すること。</div>
+<h4>4．対象外となる受取方法の見分け方</h4>
+<p>利用規約第15条により、次の方法で受け取った荷物の伝票はポイント対象外。伝票上の以下の記載に注意する。</p>
+<div class="tblwrap"><table>
+<tr><th>受取方法</th><th>伝票上の手がかり</th></tr>
+<tr><td>郵便局留め</td><td>住所欄または備考欄に「局留」「郵便局留め」の記載。住所が郵便局の所在地になっている、または郵便局の郵便番号と利用者の自宅住所が混在している</td></tr>
+<tr><td>営業所止め</td><td>「営業所止め」「センター止め」「支店止め」等の記載。届け先が宅配事業者の事業所名</td></tr>
+<tr><td>コンビニ受取</td><td>届け先がコンビニ店舗名・店舗住所</td></tr>
+<tr><td>宅配ロッカー</td><td>「PUDO」「Amazon Hub」「ロッカー」等の記載</td></tr>
+<tr><td>トリイクスポット</td><td>届け先が当社拠点の住所</td></tr>
+</table></div>
+<div class="note">当初の届け先が登録住所であっても、不在等により受取場所を上記に変更して受け取った場合も対象外（規約第15条2項）。</div>
+<h4>5．処理期限</h4>
+<p>規約第14条第1項により、ポイントの確定は<strong>利用の受付から原則72時間以内</strong>。目視確認タスクは提出から72時間以内に処理する。</p>
+<div class="warn">金曜〜日曜の提出分は週明けまで放置すると期限を超えるため、シフト内で必ず処理すること。確認に時間を要し72時間を超える見込みの場合は、規約第14条第4項に基づき延長する旨をアプリで通知する（管理者へ連絡）。</div>
+<h4>6．過去に承認した伝票番号の一元管理</h4>
+<p>伝票番号・伝票写真提出日・利用者名／会員ID・紐づくアンケート内容・付与ポイント額のセットを管理者画面で一元管理・CSV出力できる。同一伝票の使い回しがないかのチェックに使用する。</p>
+<p><strong>過去の伝票がまとめて提出された場合は、この画面で全件の伝票番号重複を確認したうえで、重複がなければ承認する。</strong></p>
+<h4>7．非承認処理の手順</h4>
+<ul>
+<li>上記3の表から該当する通知種別を選択する。</li>
+<li>「その他」を選択した場合はチャット画面へ自動遷移するので、理由を記載のうえユーザーへ通知する。</li>
+<li>警告に該当する非承認を行った場合は、4-5の不正チェックとは別に、Slackで社員へ共有する。</li>
+</ul>
+<h3>4-5　週次不正チェック業務<span class="tag t-home">自宅de</span></h3>
+<ul>
+<li>毎週月曜9時、直近1週間で週3件以上の伝票写真を提出した利用者が、ダッシュボード下段に自動的にまとめて表示される。</li>
+<li>該当利用者をクリックすると、直近1週間の提出伝票情報・承認結果・すべての伝票写真・顧客の基本情報が表示される。</li>
+<li>社員が内容を確認し、「不正」または「不正なし」ボタンで判定する。</li>
+<li>「不正」を選択した場合、不正理由をプルダウン選択＋テキスト入力する画面に遷移し、「不正登録」ボタンを押すと <code>contact_center@everywill-jp.com</code> へ通知が届く。</li>
+<li>不正登録された情報は一元管理画面で確認・管理でき（伝票写真・伝票情報・利用者情報・不正登録者の情報等）、管理者権限者が「解消」ボタンで対応の未決状況を管理できる。</li>
+<li>次のフラグ（10-1参照）が付与されている利用者（社員・友人／知人・取引関係者・ITベンダー）は、週3件以上提出してもこのアラート対象から除外される。</li>
+<li><strong>「お得意様」フラグは除外対象としない。</strong>利用頻度が非常に高い利用者ほどチェックが必要なため、フラグの有無にかかわらずアラート対象とする。</li>
+</ul>
+</section>
+
+<section id="s5">
+<h2>5　荷物・拠点状況管理業務（トリイクルー報告の確認）<span class="tag t-spot">スポットのみ</span></h2>
+<div class="meta">業務タイミング：拠点報告タスク生成時／作業者（権限）：全員</div>
+<h3>5-1　【ダッシュボード】在庫状況（トリイクルー報告）の確認と承認</h3>
+<div class="note">トリイクルーがアプリでスポットにある荷物の伝票画像を撮影すると、OCR機能によって受取人名、電話番号、伝票番号などの情報が自動で読み取られ、報告フォームに入力・保存される。</div>
+<ul>
+<li>ダッシュボードの未対応タスクから、提出された在庫状況報告を開く。</li>
+<li>OCRで自動入力された情報と、証跡として保存されている伝票画像を見比べ、誤りがないか確認のうえ「承認」処理を行う。</li>
+<li>ご近所ワークプラットフォーム上でのトリイクルーの作業報告も承認とする（11章参照）。</li>
+</ul>
+<h3>5-2　【ダッシュボード】拠点状況（満空状況・破損・規約外荷物等）の確認と承認</h3>
+<ul>
+<li>トリイクルーから提出された拠点状況報告をダッシュボードで確認する。</li>
+<li>満空状況の反映：報告が「余裕あり」以外（70%以上〜満杯など）であった場合、必ず現地の写真を目視確認し、報告内容と相違する場合は手動で状況を修正する。「満杯（90%以上）」の報告時のみシステム上で拠点状況が自動反映され、それ以外は担当スタッフが手動で修正する。</li>
+<li>トラブル報告の確認：器具・備品の破損、汚損、荷物の異常（漏えい・異臭）、残置物、利用規約違反などが報告された場合、報告内容と添付画像を確認する。状況に応じて該当拠点の「利用制限」や「利用停止」の設定を行うべきか管理者に判断を仰ぐ。</li>
+</ul>
+<h3>5-3　荷物到着時のイレギュラー対応</h3>
+<p>eKYC未済・未登録ユーザーへの荷物：本人確認（eKYC）を終えていない、または会員登録がないユーザー宛の荷物が拠点に届いた場合は、トリイクアプリ経由で「会員登録およびeKYCが完了しないと荷物が受け取れない旨」が自動通知される。</p>
+</section>
+
+<section id="s6">
+<h2>6　モニターキャンペーン</h2>
+<div class="meta">業務タイミング：キャンペーン実施の都度／作業者（権限）：管理者</div>
+<h3>6-1　概要</h3>
+<p>新規会員の獲得を目的に、当社は任意のタイミングでモニターキャンペーンを実施する。キャンペーンの告知は別途LPを作成し、モニター登録用リンクを掲載する。なお、キャンペーン期間中以外は本章は参照不要。</p>
+<div class="note">自宅deトリイクのモニターキャンペーンは、トリイクスポットのモニターとはエントリー・付与ポイントとも完全に別物として運用される。両サービスのモニター施策を混同しないよう留意すること。</div>
+<h3>6-2　対応事項</h3>
+<p>原則、モニターキャンペーンによる個別対応業務は発生しない。</p>
+<h3>6-3　ポイント付与額の変更</h3>
+<p>本キャンペーンによるポイント付与額を変更する場合は、キャンペーン開始日より前にポイント変更処理を行う（13-2を参照）。</p>
+</section>
+
+<section id="s7">
+<h2>7　問い合わせ・トラブル対応</h2>
+<div class="meta">業務タイミング：問い合わせタスク生成時</div>
+<h3>7-1　問い合わせの確認と返信対応（ダッシュボード起点）</h3>
+<ul>
+<li>タスクの確認：ユーザーからのLINEでの問い合わせは、ダッシュボード上に「未処理タスク」として表示される。シフト期間中は顧客からの照会対応を最優先とする。</li>
+</ul>
+<div class="note">対応にあたっては、まずユーザー管理画面の「トリイクスポット利用状況／自宅deトリイク利用状況」列で、問い合わせ元ユーザーがどちらのサービスの会員か・現在のランクを確認したうえで対応すること（10章参照）。</div>
+<ul>
+<li>チャットでの返信：ダッシュボードのチャット機能を使用し、ユーザーへ直接LINEメッセージを返信する。対応完了時は画面右上の「対応を完了する」を押す。</li>
+<li>メールの確認：法人用のGmailメール（contact_center／customer_support）にも問い合わせが届く可能性があるため、併せて確認・対応を行う。</li>
+<li>LINEチャット画面の直接確認：ユーザーが「お問い合わせ」と入力していない場合、未処理タスクには自動で上がってこないため、管理画面の「チャット」機能を開き、メールボックス確認と同じ頻度でLINEチャット画面を開き、見落としがないか確認する。</li>
+</ul>
+<h3>7-2　電話での問い合わせ対応（トビラフォン）</h3>
+<div class="note">トリイクの代表電話（0120-600-273）等にかかってきた電話は、各自のスマートフォンにインストールされている「トビラフォン Cloud」アプリで受信・対応する。</div>
+<ul>
+<li>電話を受ける場合（着信対応）：着信が鳴ったら応答ボタンをタップして通話を開始する（Slackチャンネル「#13_トリイクスポット運営」にも通知）。着信開始から120秒（2分）誰も出ない場合、自動的に管理者（内線9999）へエスカレーション（転送）される。</li>
+<li>電話をかける場合（発信対応）：アプリのキーパッド画面の上部にある「自局番号（契約電話番号▼）」の選択欄をタップし、発信元番号として「トリイク事務局」が正しく選択されていることを確認してから発信する。</li>
+</ul>
+<p>応答後の応対や通話中の基本操作については、Googleドライブ内の基本マニュアルを参照。</p>
+<h3>7-3　拠点の解錠ができない場合の対応<span class="tag t-spot">スポットのみ</span></h3>
+<ul>
+<li>原因①：ユーザーが位置情報をオフにしている。「拠点から100m以内」という解錠条件を満たしていない可能性があるため、まずユーザー側のデバイスの位置情報が許可されているか確認する。</li>
+<li>原因②：マイトリイクに登録していない拠点。拠点の登録が適切になされているか確認する。</li>
+<li>原因③：予約が必要な拠点であるのに予約をしていない。予約可否が「ON」の拠点は解錠に事前予約が必要。</li>
+</ul>
+<h3>7-4　入退室制限システム（メンズブロック・アラート）に関する対応<span class="tag t-spot">スポットのみ</span></h3>
+<div class="note">安全管理のため、システムにより以下の入退室制限が自動でかかる。ユーザーから「カギが開かない」「エラー画面が出る」といった問い合わせがあった場合は、本仕様が作動している可能性を確認して案内すること。</div>
+<ul>
+<li>メンズブロック機能：先に女性ユーザーが入室している場合、その入室記録から一定時間（拠点ごとに設定）は後から来た男性ユーザーの入室が制限される。</li>
+<li>男性入室アラート：先に男性ユーザーが入室している状態で、一定時間内に女性ユーザーがQRコードを読み込んだ場合、注意喚起メッセージが自動表示される。</li>
+</ul>
+<h3>7-5　「ロック解錠状態が5分以上続いている」アラートへの対応<span class="tag t-spot">スポットのみ</span></h3>
+<ul>
+<li>RemoteLockシステムの確認：ログインし「ロック解錠状態」か「ロック状態（施錠）」かを確認する。「ロック解錠状態」である場合、次へ進む。</li>
+<li>監視カメラの確認：Safieにログインし対象拠点の映像を確認、解錠状態の原因を目視で確認する（ドアが障害物に引っ掛かり半開き／ユーザーの故意で開けっぱなし　等）。</li>
+<li>解錠状態への対処（実際の状況に合わせて柔軟に対応すること）：インターホンを通じた直接連絡／トリイクルーへの事前連絡（現地対応を要請）／原因不明かつ重大なトラブルが想定される場合はスタッフが現地へ直行。</li>
+</ul>
+<h3>7-6　会員情報変更・ステータス管理の対応</h3>
+<ul>
+<li>会員情報の変更：ユーザーから「名前（本名）」や「住所」の変更申請があった場合は、新規会員登録時と同様にシステム上で自動的にeKYCが開始され、スタッフがダッシュボード上で承認することで完了する。</li>
+<li>ユーザーの退会方法：トリイクアプリより任意で退会可能。退会後は再登録できないほか、退会前のポイント残高やステータスを引き継ぐことはできない。</li>
+<li>対応注意顧客フラグ：クレームや規約違反の疑いがあるユーザーには、ダッシュボード上でユーザーからは見えない形で「対応注意顧客フラグ」を設定し、スタッフ間で情報共有する（Slackチャンネル）。</li>
+<li>強制退会・利用停止：悪質な規約違反等が確認された場合は、管理者権限によりシステム上から対象ユーザーを「強制退会」させる、もしくは「利用停止」の措置をとる。同措置を取る場合は管理スタッフへ相談すること。システムから顧客データを削除する場合は、管理者からシステムベンダーへ個別連絡が必要。強制退会を行った場合はユーザータグを「強制退会済み」へ変更する。</li>
+<li>ユーザーデータの完全消去：原則、保有ポイントデータも消去する。</li>
+<li>本人確認書類上の住所とは異なる住所での登録要望：本人確認書類に記載の住所以外での会員登録は認めない。ただし単身赴任等で実際の居住住所が異なる申し出があった場合は、ユーザー情報管理のタグを「実居住地相違」へ変更する。「実居住地相違」タグ付与ユーザーへの長期滞留荷物送付時は、個別チャットで送付先を確認する。</li>
+</ul>
+<h3>7-7　退会済みユーザーから再登録依頼があった際の対応</h3>
+<ul>
+<li>問い合わせフォーム等から再登録の問い合わせがあった場合
+ <ul><li>「ユーザー管理」より該当ユーザーを検索し「強制退会済み」タグの有無を確認</li>
+ <li>タグがある場合は再登録不可のため個別対応（管理者へ相談）</li>
+ <li>タグがない場合（任意退会）は管理者による個別判断</li></ul></li>
+<li>再登録を認める場合の処理手順
+ <ul><li>保守ベンダーへユーザーID・氏名・電話番号を伝える</li>
+ <li>「再登録できるようにする」「再登録後は新規キャンペーン等の対象としない」「ポイント数はリセットし退会前の保有ポイントは消去する」ことを伝える</li>
+ <li>完了報告を受け次第、当該ユーザーへ再登録可能になった旨を通知する</li></ul></li>
+</ul>
+<h3>7-8　施設・法人からの設置に関する問い合わせ</h3>
+<div class="warn">施設向けの設置提案チラシ（代表電話番号および <code>contact_center@everywill-jp.com</code> を記載）を配布中のため、施設・店舗の担当者から設置に関する問い合わせが入る場合がある。<br><strong>電話・メール・LINEいずれの経路であっても、その場で回答せず、石戸へエスカレーションする。</strong></div>
+</section>
+
+<section id="s8">
+<h2>8　終業</h2>
+<div class="meta">業務タイミング：退勤15分前</div>
+<h3>8-1　未処理タスク・メッセージの最終確認</h3>
+<ul>
+<li>ダッシュボードを開き、新規の「問い合わせ（チャット）」「新規会員情報の承認」「トリイクルー報告の確認」「ポイント申請（伝票提出）」「拠点変更」等（自宅deトリイクの場合は「住所追加申請」「会員情報変更申請」「出店要望確認」等も含む）の未処理タスクが残っていないか、両サービスとも最終確認を行う。</li>
+<li>個別チャットおよび各種メールボックスに、対応漏れや未読メッセージがないか確認する。返信遅れはトラブル拡大のリスクとなるため、当番シフト内で可能な限り処理を完了させること。</li>
+</ul>
+<h3>8-2　各種システム／設備の稼働確認</h3>
+<ul>
+<li>Safieの稼働状況確認（1-2参照）</li>
+<li>RemoteLockの稼働状況確認（1-2参照）</li>
+<li>デジコのポイント残高確認（社員のみ／13-2参照）</li>
+<li>トビラフォン Cloudからのログアウト</li>
+</ul>
+<h3>8-3　業務レポートの記入</h3>
+<ul>
+<li>業務日誌に必要事項を記入する。</li>
+<li>緊急性の高い事項や重要事項は個別にチャット・メール等でも引継ぎを行うこと。</li>
+</ul>
+</section>
+
+<section id="s9">
+<h2>9　週次／隔週業務</h2>
+<div class="meta">業務タイミング：個別に記載／作業者（権限）：個別に記載</div>
+<h3>9-1　メッセージ配信（適宜／石戸）</h3>
+<div class="warn"><strong>【要確認】</strong>石戸にてアップデートする項目、メルマガの頻度は要検討。</div>
+<h3>9-2　チャットボット更新（第1・第3月曜日／管理者）</h3>
+<ul>
+<li>概要：スタッフQ&amp;Aで解決されたユーザー向けの対応・処置に関し、今後も同様の問い合わせが見込まれるものについて、チャットボットで自動回答できるようにする。</li>
+<li>スタッフQ&amp;Aの更新確認：前回作業時以降に更新されたスタッフQ&amp;Aを確認し、「ユーザーからの問い合わせ」かつ「今後も同様の問い合わせが見込まれるもの」を個別に抽出する。</li>
+<li>チャットボット用RAG（Claude）へのインプット：<strong>【要確認】</strong>今後作業。</li>
+</ul>
+<h3>9-3　SendGrid・NEXWAY状態確認（第1・第3週／契約社員）</h3>
+<p>SendGrid（メール配信基盤）およびNEXWAY（eKYC本人確認システム）の契約プラン・稼働設定・API連携設定に変更や異常がないか、月2回（第1週・第3週の稼働日）確認する。</p>
+<h4>1．SendGridの状態確認</h4>
+<ul>
+<li><code>sendgrid.kke.co.jp</code> からログイン（ID・パスワードは別紙D参照）</li>
+<li>マイページの「ご利用中のプラン」が「Essentials 50Kプラン」となっていることを確認</li>
+</ul>
+<h4>2．NEXWAYの状態確認</h4>
+<p>事前準備（初回のみ）として固定IPアドレス（VPN）設定が必要（NEXWAYの管理者画面にはIPアドレス制限がかかるため）。</p>
+<ul>
+<li>VPNマイページの「初期設定 接続ガイド」より端末に応じた接続設定を行う</li>
+<li>IPアドレス確認サイトで表示されるIPアドレスが <code>160.248.69.186</code> になっていることを確認</li>
+</ul>
+<p><strong>カ方式（ログイン確認）</strong>：<code>jpki.nexwaykyc.biz</code> からログイン（ID・パスワードは別紙D参照）。ログインできればOK。</p>
+<p><strong>ホ方式（管理者画面の設定確認）</strong>：<code>console.protechidchecker.com</code> からログイン →「ページ」→「本番環境-eKYC開始ページ」の「編集する」→「アプリの起動」が「起動」であることを確認 →「設定」→「組織設定」でURL・アクセスキー・シークレットキー・復号キーが別紙D記載の値と一致するか確認 →「設定」→「API設定」で使用有効（ON）が別紙D記載の値と一致するか確認。</p>
+<div class="warn">いずれかの値が一致しない場合は、変更・改ざんの可能性があるため直ちに社員へ報告すること。</div>
+<h3>9-4　自宅deトリイク用アンケート結果の確認</h3>
+<p>自宅deトリイクの必須（7問）・任意（8問）・初回利用（14問）・モニター（22問）の各アンケートは、トリイクスポット用とは別のデータベースで集計される。設問内容自体はスタッフの日次業務に影響しないが、集計結果の確認や12月の国交省報告に向けたデータ整理が必要な場合は、管理者からの個別指示に従う。</p>
+</section>
+
+<section id="s10">
+<h2>10　ユーザー管理</h2>
+<div class="meta">業務タイミング：適宜／作業者（権限）：全員</div>
+<h3>10-1　ユーザーへのフラグ付け</h3>
+<p>ユーザーへのフラグ付けは以下の要領で実施する（トリイクスポット・自宅deトリイク共通のルールで運用する）。</p>
+<div class="tblwrap"><table>
+<tr><th>タグ名称</th><th>概要・説明（付与する条件）</th><th>入力例・備考</th><th>タグ付タイミング</th></tr>
+<tr><td>お得意様</td><td>利用頻度が非常に高く、かつ優良な利用を継続しているユーザーに付与するタグ</td><td>－</td><td class="c">適宜</td></tr>
+<tr><td>友人／知人</td><td>運営メンバー等の直接的な友人や知人であるユーザー。テスト利用や個別連絡の識別に用いる</td><td>須藤の友人／石戸の知人 等</td><td class="c">会員登録時</td></tr>
+<tr><td>社員</td><td>社内のユーザーに付与する</td><td>－</td><td class="c">適宜</td></tr>
+<tr><td>ITベンダー</td><td>システム開発や保守等に関わる協力会社の関係者。テストアカウント等の識別に使用する</td><td>－</td><td class="c">会員登録時</td></tr>
+<tr><td>取引関係者</td><td>拠点の設置先オーナーやその従業員、提携企業など、ビジネス上の関係があるユーザー</td><td>〇〇ビルオーナー／〇〇社社員 等</td><td class="c">会員登録時</td></tr>
+<tr><td>要注意先</td><td>過去に過度な要求や強いクレームがあり、今後の対応において個別・慎重な対応が求められるユーザー</td><td>頻繁な問い合わせ／高圧的な言動／過度な補填要求 等</td><td class="c">適宜</td></tr>
+<tr><td>その他</td><td>上記に該当しないユーザー（基本使用しない）</td><td>－</td><td class="c">適宜</td></tr>
+</table></div>
+<div class="note">上記フラグのうち、社員・友人／知人・取引関係者・ITベンダーは、自宅deトリイクの週次不正チェックアラート（4-5参照）の対象から除外される。<strong>「お得意様」は除外対象としない</strong>（利用頻度が高い利用者ほどチェックが必要なため）。</div>
+<h3>10-2　サービス別の会員情報確認</h3>
+<p>ユーザー管理画面の一覧には「トリイクスポット利用状況／自宅deトリイク利用状況」「トリイクスポットランク／自宅deトリイクランク」がサービスごとに分かれて表示される。1人のユーザーが両サービスに会員登録している場合もあるため、対応時はどちらのサービスに関する内容かを確認したうえで、該当する列の情報を参照すること。</p>
+</section>
+
+<section id="s11">
+<h2>11　トリイクルー管理</h2>
+<div class="meta">業務タイミング：終業時／作業者（権限）：管理者</div>
+<h3>11-1　アカウントの発行と承認</h3>
+<ul>
+<li>トリイクルーアカウント発行：ご近所ワーカーIDを新規作成する（名前、メールアドレス、拠点、ID、パスワード、勤務期間を設定）。</li>
+<li>トリイクアプリ上でのトリイクルー登録：ワーカータブより「新規ワーカー」ボタンを押し、新たに登録されたトリイクルーの情報を記入する。</li>
+<li>既存会員のトリイクルー登録：既存会員をトリイクルー登録した場合、会員情報の「ワーカー」欄が「登録済み」となる。</li>
+</ul>
+<h3>11-2　業務完了処理</h3>
+<ul>
+<li>ご近所ワークプラットフォームへログイン</li>
+<li>「通知」タブより業務完了報告（検収）が上がってきているか確認</li>
+<li>報告内容に問題がなければ「検収完了」を押す（相違がある場合はメッセージ機能で直接トリイクルーとやり取りし、正しい報告を求める）</li>
+</ul>
+</section>
+
+<section id="s12">
+<h2>12　マーケティング・分析業務</h2>
+<div class="meta">業務タイミング：毎週火曜まで（分析期間：月曜〜日曜）／作業者（権限）：契約社員以上</div>
+<h3>12-1　ダッシュボード分析とCSV出力</h3>
+<p>マーケティング施策の集計に役立てるため、「会員情報登録者数」「eKYC完了者数」「トリイク利用者（伝票写真提出者）数」などを切り分けて確認・CSVエクスポートする。</p>
+<h3>12-2　分析用スプレッドシートへのインポート</h3>
+<p>出力されたCSVデータを「分析用スプレッドシート」へインポートし、以下のとおり保存する。</p>
+<ul>
+<li>ファイル名：<code>yyyy/mm/dd〜mm/dd_トリイク分析結果</code></li>
+<li>保存先：<strong>【要確認】</strong></li>
+</ul>
+</section>
+
+<section id="s13">
+<h2>13　マスター情報管理</h2>
+<div class="meta">業務タイミング：毎日1回確認（適宜）／作業者（権限）：管理者</div>
+<h3>13-1　拠点情報の追加・変更<span class="tag t-spot">スポットのみ</span></h3>
+<ul>
+<li>新規拠点の追加：新規拠点用QRコードの発行（画像データ／URL）、利用時間の設定、RemoteLock端末との紐付け、拠点アクセス情報（WEBページ）の作成・リンク紐付け、予約可能人数、伝票提出要否、ポイント付与倍率、キャンペーン有無（紹介キャンペーンやモニター等）、男性制限の秒数設定、【通知設定】新店オープン一斉通知の実行。</li>
+<li>拠点情報の変更：運用条件が変更となった際に変更する（内容は上記参照）。</li>
+</ul>
+<h3>13-2　ポイント・キャンペーン設定</h3>
+<h4>1．デジコポイント残高確認・発注（毎日必ず確認／社員業務）</h4>
+<ul>
+<li>デジコへログイン</li>
+<li>ホーム画面より「残高」を確認</li>
+<li>残高が200,000円を下回っている場合、追加発注（20万円）を行う</li>
+</ul>
+<p><strong>【デジコ発注方法（前払い発注）】</strong></p>
+<ul>
+<li>残高アラート（20万円以下）の表示を確認</li>
+<li>「請求確認」タブの「前払い請求書の新規作成」をクリック</li>
+<li>「入金額」を200,000に設定し、入金予定日（着金日）を入力し登録（請求先会社名等は登録済みのため入力不要）</li>
+<li>発行された請求書をダウンロードし経理担当者へ回付、振込を完了</li>
+<li>振込完了後「残高アラート」タブより入金日と残高を確認（タイムラグあり）</li>
+</ul>
+<h4>2．ポイント付与率設定</h4>
+<p>新規登録キャンペーンや特定拠点のモニターキャンペーン、会員ランクに応じたプラスポイントなどの期間や付与額を設定・変更する。</p>
+<div class="note"><strong>自宅deトリイクの指定エリア倍率（倍率A・B）設定</strong>　管理者画面で対象の都道府県・市区町村（複数指定可）を設定し、該当エリアで受け取った荷物には倍率A（必須アンケート回答ポイントの累積値にかかる係数）・倍率B（任意アンケート回答ポイントにかかる係数）が適用される。3エリア程度まで設定可能。</div>
+<h3>13-3　アンケート設定</h3>
+<ul>
+<li>各アンケートの設問追加・編集</li>
+<li>各アンケートの集計結果確認</li>
+<li>アンケートの新規追加（この対応を行う際は須藤または中本へ個別に相談）</li>
+</ul>
+<h3>13-4　アカウント設定</h3>
+<p>管理者が追加・変更された際は、「アカウント設定」から権限を修正する。</p>
+</section>
+
+<section id="s14">
+<h2>14　自動LINE通知一覧<span class="tag t-spot">スポット</span></h2>
+<div class="note">通知内容の詳細は管理画面「メッセージ」を参照。自宅deトリイクにも別途、専用の自動LINE通知（受取住所・アンケート内容等に応じた通知）が設定されている。詳細は管理画面「メッセージ」の自宅deトリイク側で確認すること。</div>
+<div class="tblwrap"><table>
+<tr><th>通知タイトル</th><th>送信タイミング・自動送信の条件</th></tr>
+<tr><td>荷物到着＆本人確認依頼</td><td>ワーカーが在庫報告を送信した際、対象荷物のユーザーが会員登録済みで、かつ「本人確認未了」の場合に送信される。</td></tr>
+<tr><td>7日経過通知</td><td>「荷物保管通知」の初回通知から6日後時点で、ユーザーが伝票を提出していない、または承認されていない場合に送信される。</td></tr>
+<tr><td>本人確認審査完了</td><td>管理画面にて、管理者が本人確認を承認した場合に送信される。</td></tr>
+<tr><td>本人確認不一致通知</td><td>管理者が本人確認（新規登録時、会員情報変更時）を不一致と判断し、管理画面で否認された場合に送信される。</td></tr>
+<tr><td>拠点内満床連絡</td><td>拠点状況が「満員（90%以上等）」になったタイミングで、該当拠点をマイトリイクに登録しているステータスが「利用可能」の全ユーザーに送信される。</td></tr>
+<tr><td>荷物取り残し通知</td><td>ワーカー報告がある拠点にて、在庫報告時に同一ユーザー・同一伝票番号で、過去に未受取のワーカー伝票（荷物）が存在する場合に送信される。</td></tr>
+<tr><td>退会完了通知</td><td>ユーザーがマイページで退会処理を完了した直後に送信される。</td></tr>
+<tr><td>ギフトコード発行通知</td><td>ユーザーがポイント交換を行い、デジコAPIによってギフトコードが発行された直後に送信される。</td></tr>
+<tr><td>伝票画像不鮮明・情報不足による再提出依頼</td><td>管理画面の伝票確認ポップアップで伝票を否認し、該当する通知種別を選択して送信した場合に対象ユーザーへ送信される。</td></tr>
+<tr><td>伝票不正・不一致による非承認（警告）</td><td>管理画面の伝票確認ポップアップで伝票を否認し、該当する通知種別を選択して送信した場合に対象ユーザーへ送信される。</td></tr>
+<tr><td>拠点変更申請の否認通知</td><td>管理画面の拠点変更確認ポップアップで、管理者が否認理由を記述して申請を否認した場合に対象ユーザーへ送信される。</td></tr>
+<tr><td>荷物未受取者への最終通告メッセージ</td><td>荷物到着通知の翌日から14日経過しても荷物を受け取らない利用者へ。初回通知から14日後時点で、初回通知時以降にユーザーが伝票を提出していない、または承認されていない場合に送信される。</td></tr>
+<tr><td>友だち紹介キャンペーン</td><td>累計利用回数が0回のユーザーの伝票が承認（またはOCR成功）されたタイミングで送信される。紹介の有無に関わらず、初回利用した全ユーザーに対して送られるPR通知。</td></tr>
+<tr><td>アンケート送付</td><td>ユーザーが伝票を提出し、承認（またはOCR成功）されたタイミングで、アンケート回答用URLとして送信される。</td></tr>
+<tr><td>伝票未提出アラート（30分経過）</td><td>スポット最終退出時刻（ドア解錠または入室ログの日時から3分後）から30分が経過しても伝票写真の提出がない利用者へ自動送信される。</td></tr>
+<tr><td>伝票提出期限超過通知（3時間経過）</td><td>スポット最終退出時刻から3時間が経過した時点で伝票写真の提出がない利用者へ自動送信される。</td></tr>
+</table></div>
+</section>
+
+<section id="s15">
+<h2>15　自動メール通知一覧</h2>
+<div class="note">通知内容の詳細は管理画面「メッセージ」を参照。</div>
+<div class="tblwrap"><table>
+<tr><th>件名</th><th>メール送付先</th><th>通知条件</th></tr>
+<tr><td>アカウント発行のご案内</td><td>新規管理者（アカウント発行画面に入力したメールアドレス）</td><td>管理者「アカウント設定」画面から、アカウント発行を行った時</td></tr>
+<tr><td>ご近所ワーカーアカウントのご案内</td><td>新規ワーカー（アカウント登録画面に入力したメールアドレス）</td><td>管理者「ワーカー」画面から、新規ワーカー登録を行った時</td></tr>
+<tr><td>認証コードのご案内</td><td>今後新たに登録する自分のメールアドレス、もしくは変更後のメールアドレス</td><td>① 認証コード入力画面に遷移した時　② 「再送する」ボタンを押した時</td></tr>
+<tr><td>パスワード再設定のご案内</td><td>「パスワードを忘れた方」画面に入力したメールアドレス</td><td>「パスワードを忘れた方」画面にて「メールを送信する」ボタンを押した時</td></tr>
+<tr><td>会員未登録者からの荷物到着通知</td><td><code>contact_center@everywill-jp.com</code></td><td>ワーカー在庫報告時の伝票の「名前、電話番号」が両方一致する一般ユーザーがいない時</td></tr>
+</table></div>
+</section>
+
+<section id="todo">
+<h2>要確認一覧</h2>
+<p>本文中に【要確認】と記載した箇所は以下のとおり。確認が取れ次第、本文を更新すること。</p>
+<ul>
+<li>9-1：メッセージ配信の頻度・内容</li>
+<li>9-2：チャットボット用RAGへのインプット手順</li>
+<li>12-2：分析用スプレッドシートの保存先</li>
+</ul>
+</section>
+
+<footer>株式会社EveryWiLL　トリイク業務マニュアル｜最終更新 2026年9月8日</footer>
+</main>
+</div>
+
+<script>
+(function(){
+  var q=document.getElementById('q'), hits=document.getElementById('hits'),
+      empty=document.getElementById('empty'),
+      secs=Array.prototype.slice.call(document.querySelectorAll('main section')),
+      links=Array.prototype.slice.call(document.querySelectorAll('nav.toc a')),
+      toc=document.getElementById('toc'), tg=document.getElementById('navtoggle');
+
+  secs.forEach(function(s){ s.dataset.orig=s.innerHTML; s.dataset.text=(s.textContent||'').toLowerCase(); });
+
+  function clearMarks(){ secs.forEach(function(s){ if(s.dataset.marked==='1'){ s.innerHTML=s.dataset.orig; s.dataset.marked='0'; } }); }
+
+  function markIn(node, term){
+    var walker=document.createTreeWalker(node, NodeFilter.SHOW_TEXT, null);
+    var nodes=[], n;
+    while(n=walker.nextNode()){ if(n.nodeValue.toLowerCase().indexOf(term)>-1) nodes.push(n); }
+    nodes.forEach(function(t){
+      var parts=t.nodeValue.split(new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'));
+      var frag=document.createDocumentFragment();
+      parts.forEach(function(p){
+        if(p.toLowerCase()===term){ var m=document.createElement('mark'); m.textContent=p; frag.appendChild(m); }
+        else if(p) frag.appendChild(document.createTextNode(p));
+      });
+      t.parentNode.replaceChild(frag,t);
+    });
+  }
+
+  function run(){
+    var term=(q.value||'').trim().toLowerCase();
+    clearMarks();
+    if(!term){ secs.forEach(function(s){ s.classList.remove('hidden'); }); hits.textContent=''; empty.classList.add('hidden'); return; }
+    var found=0;
+    secs.forEach(function(s){
+      if(s.dataset.text.indexOf(term)>-1){ s.classList.remove('hidden'); markIn(s,term); s.dataset.marked='1'; found++; }
+      else s.classList.add('hidden');
+    });
+    hits.textContent=found+'件';
+    empty.classList.toggle('hidden', found>0);
+  }
+  var t; q.addEventListener('input',function(){ clearTimeout(t); t=setTimeout(run,180); });
+
+  tg.addEventListener('click',function(){
+    var open=toc.classList.toggle('closed')===false;
+    tg.setAttribute('aria-expanded', open?'true':'false');
+  });
+  if(window.matchMedia('(min-width:901px)').matches) toc.classList.remove('closed');
+  window.addEventListener('resize',function(){
+    if(window.matchMedia('(min-width:901px)').matches) toc.classList.remove('closed');
+  });
+  links.forEach(function(a){ a.addEventListener('click',function(){
+    if(!window.matchMedia('(min-width:901px)').matches) toc.classList.add('closed');
+  });});
+
+  var obs=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href')==='#'+e.target.id); });
+      }
+    });
+  },{rootMargin:'-80px 0px -70% 0px'});
+  secs.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+</body>
+</html>
